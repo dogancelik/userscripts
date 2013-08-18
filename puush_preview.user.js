@@ -4,7 +4,7 @@
 // @namespace   dogancelik.com
 // @include     http://puush.me/account*
 // @grant       none
-// @version     1.0
+// @version     1.0.1
 // ==/UserScript==
 
 "use strict";
@@ -46,7 +46,7 @@ preview.addEventListener("load", imageLoad, false);
 
 function mouseEnter (e) {
   preview.style.display = "";
-  var link = e.target.children.item(0).children.item(0).href;
+  var link = (!is_chrome ? e.target : this).children.item(0).children.item(0).href;
   preview.src = link;
 }
 
@@ -72,8 +72,10 @@ function mouseMove (e) {
   preview.style.top = posY + "px";
 }
 
+var is_chrome = /Chrome/.test(window.navigator.userAgent);
+
 for (var i = 0; tiles.length > i; ++i) {
-  tiles[i].addEventListener("mouseenter", mouseEnter, false);
-  tiles[i].addEventListener("mouseleave", mouseLeave, false);
+  tiles[i].addEventListener(!is_chrome ? "mouseenter" : "mouseover", mouseEnter, false);
+  tiles[i].addEventListener(!is_chrome ? "mouseleave" : "mouseout", mouseLeave, false);
   tiles[i].addEventListener("mousemove", mouseMove, false);
 }
