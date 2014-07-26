@@ -2,7 +2,7 @@
 // @name        Better Alldebrid
 // @namespace   dogancelik.com
 // @include     http*://www.alldebrid.com/*
-// @version     1.0.0
+// @version     1.0.1
 // @grant       GM_addStyle
 // @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/better_alldebrid.user.js
 // ==/UserScript==
@@ -18,7 +18,7 @@ function getAddonUrl() {
 }
 
 var logoutUrl = document.querySelector(".toolbar_disconnect").href;
-var accDetails = document.querySelector(".toolbar_welcome").textContent.split("welcome ")[1].replace(",  your account will expire in ", " (") + ")";
+var accDetails = document.querySelector(".toolbar_welcome").textContent.split("welcome ")[1].replace(",  Your account expires in ", " (") + ")";
 
 var navData1 = [
   ["Downloader", "/service/"],
