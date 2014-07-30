@@ -2,7 +2,7 @@
 // @name        Better Alldebrid
 // @namespace   dogancelik.com
 // @include     http*://www.alldebrid.com/*
-// @version     1.0.1
+// @version     1.1.0
 // @grant       GM_addStyle
 // @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/better_alldebrid.user.js
 // ==/UserScript==
@@ -108,5 +108,6 @@ if (location.pathname == "/torrent/") {
   deleteEls(document.querySelectorAll("#lostpassword .title_big, #lostpassword .lostpassword_yellowborder, #lostpassword .lostpassword_text, #lostpassword center, #lostpassword .title_upload, .torrent_left br, .torrent_right br, #lostpassword br"));
   document.querySelector("input[name='magnet']").setAttribute("placeholder", "Magnet");
   document.querySelector(".display_path").setAttribute("placeholder", "Torrent File");
-  GM_addStyle("#lostpassword form { margin-top: 20px; }");  
+  GM_addStyle("#lostpassword form { margin-top: 20px; }");
+  Array.prototype.slice.call(document.querySelectorAll(".torrent_filename")).forEach(function(e) { e.title = e.innerHTML; });
 }
