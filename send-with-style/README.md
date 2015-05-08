@@ -1,1 +1,0 @@
-## Moved to [dogancelik/irccloud-sws](https://github.com/dogancelik/irccloud-sws)
