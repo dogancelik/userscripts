@@ -3,7 +3,7 @@
 // @namespace   dogancelik.com
 // @description Converts Flash video to HTML5 video
 // @include     http*://www.facebook.com/*
-// @version     1.1.0
+// @version     1.1.1
 // @grant       none
 // @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/facebook_html5_video.user.js
 // ==/UserScript==
@@ -39,7 +39,7 @@ function convertEmbed (el) {
   video.height = embed.height;
   video.setAttribute('controls', '');
   video.setAttribute('preload', 'metadata');
-  video.setAttribute('autoplay', '');
+  // video.setAttribute('autoplay', '');
   video.className = '_ox1';
   parent.appendChild(video);
 }
