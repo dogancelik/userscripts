@@ -5,7 +5,7 @@
 // @include     https://github.com/issues/*
 // @include     https://github.com/issues?*
 // @include     https://github.com/issues
-// @version     1.0.0
+// @version     1.0.1
 // @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/github_add_commented.user.js
 // @grant       none
 // ==/UserScript==
@@ -31,11 +31,17 @@ function add (links) {
   links.innerHTML = links.innerHTML + html.replace(/::query::/g, query);
 }
 
+function removeCommenter (i, e) {
+  var deleteQuery = encodeURIComponent('commenter:' + getUsername());
+  e.href = e.href.replace(deleteQuery,'');
+}
+
 function check () {
   var links = document.querySelector('.subnav-links.left');
+  
   if (links != null && !isAdded(links)) {
     add(links);
-    $(links).find('a').on('click', check);
+    $(links).find('a').on('click', check).slice(0, 3).each(removeCommenter);
   } else setTimeout(check, 50);
 }
 
