@@ -30,7 +30,7 @@ GM_xmlhttpRequest({
   method: "GET",
   onload: function (res) {
     document.getElementById("result").innerHTML = res.responseText;
-    
+
     var els = document.querySelectorAll(".dl_link");
     for (var i = 0; i < els.length; i++)
       findAndChange(els[i].children[0]);
@@ -44,7 +44,7 @@ function findAndChange(link) {
     onload: function (res) {
       var data = res.responseText,
           container = document.createElement('div');
-      
+
       container.innerHTML = data;
       var mirror_url = container.querySelector(".highlight.redirecturl").innerHTML;
 

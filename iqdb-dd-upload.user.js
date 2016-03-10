@@ -4,7 +4,7 @@
 // @include     http*://iqdb.org/*
 // @version     1.0.0
 // @grant       none
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/iqdb_dd_upload.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/iqdb-dd-upload.user.js
 // ==/UserScript==
 
 // Init

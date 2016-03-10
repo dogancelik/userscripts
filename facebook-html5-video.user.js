@@ -5,7 +5,7 @@
 // @include     http*://www.facebook.com/*
 // @version     1.1.1
 // @grant       none
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/facebook_html5_video.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/facebook-html5-video.user.js
 // ==/UserScript==
 var srcList = ['hd_src_no_ratelimit', 'hd_src', 'sd_src_no_ratelimit', 'sd_src'];
 

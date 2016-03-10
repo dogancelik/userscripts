@@ -4,7 +4,7 @@
 // @include     http://codecguide.com/download*.htm
 // @version     1.0
 // @grant       none
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/klcp_show_mirrors.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/klcp-show-mirrors.user.js
 // ==/UserScript==
 
 var split = window.location.pathname.split('_');

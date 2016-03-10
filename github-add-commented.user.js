@@ -6,7 +6,7 @@
 // @include     https://github.com/issues?*
 // @include     https://github.com/issues
 // @version     1.0.1
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/github_add_commented.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/github-add-commented.user.js
 // @grant       none
 // ==/UserScript==
 
@@ -38,7 +38,7 @@ function removeCommenter (i, e) {
 
 function check () {
   var links = document.querySelector('.subnav-links.left');
-  
+
   if (links != null && !isAdded(links)) {
     add(links);
     $(links).find('a').on('click', check).slice(0, 3).each(removeCommenter);

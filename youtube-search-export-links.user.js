@@ -5,7 +5,7 @@
 // @include     https://www.youtube.com/results*
 // @version     1.0
 // @grant       GM_registerMenuCommand
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/youtube_search_export_links.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/youtube-search-export-links.user.js
 // ==/UserScript==
 
 var EL_ID = 'export-yt-links';

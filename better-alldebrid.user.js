@@ -4,7 +4,7 @@
 // @include     http*://www.alldebrid.com/*
 // @version     1.1.0
 // @grant       GM_addStyle
-// @updateURL   https://github.com/dogancelik/greasemonkey-scripts/raw/master/better_alldebrid.user.js
+// @updateURL   https://github.com/dogancelik/userscripts/raw/master/better-alldebrid.user.js
 // ==/UserScript==
 
 GM_addStyle("#navigation { top: 0; bottom: 0; left: 0; right: 180px; position: fixed; width: 180px; padding: 10px; background-color: rgba(255, 255, 255, .65); background: -moz-linear-gradient(left, rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%); } #navigation a { color: black } #navigation a:hover { font-weight: bold }");
@@ -50,10 +50,10 @@ var navData5 = [
   ["Terms of Service", "/tos/"],
   ["Stats", "/stats/"],
 ];
-  
+
 function createList(data) {
   var list = document.createElement("ul");
-  
+
   for (var i = 0; i < data.length; i++) {
     var li = document.createElement("li");
 
@@ -64,7 +64,7 @@ function createList(data) {
     li.appendChild(a);
     list.appendChild(li);
   }
-  
+
   return list;
 }
 
@@ -76,12 +76,12 @@ function deleteEls(els) {
   if (els instanceof NodeList) {
     for (var i = 0; i < els.length; i++) {
       els[i].remove();
-    }  
+    }
   } else {
-   els.remove(); 
+   els.remove();
   }
 }
-  
+
 var navigationDiv = document.createElement("div");
 navigationDiv.id = "navigation";
 
@@ -99,7 +99,7 @@ navigationDiv.appendChild(createDivider());
 navigationDiv.appendChild(createList(navData4));
 navigationDiv.appendChild(createDivider());
 navigationDiv.appendChild(createList(navData5));
-  
+
 document.body.insertBefore(navigationDiv, document.body.childNodes[0]);
 
 deleteEls(document.querySelectorAll("#container_header_index, #container_header, .dotsline_page, #footer, #container_footer"));
