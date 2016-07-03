@@ -1,8 +1,11 @@
 // ==UserScript==
 // @name        IQDB Drag & Drop Upload
 // @namespace   dogancelik.com
-// @include     http*://iqdb.org/*
-// @version     1.0.0
+// @include     http://iqdb.org/*
+// @include     https://iqdb.org/*
+// @include     http://www.iqdb.org/*
+// @include     https://www.iqdb.org/*
+// @version     1.0.1
 // @grant       none
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/iqdb-dd-upload.user.js
 // ==/UserScript==
