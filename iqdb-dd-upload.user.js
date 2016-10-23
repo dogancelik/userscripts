@@ -69,7 +69,7 @@ function updateResults (els) {
 }
 
 function xhrLoad (e) {
-  var html = e.target.responseText.split('IRC channel</a>.</div>')[1].split('<form')[0];
+  var html = e.target.responseText.split('search</h1>')[1].split('<form')[0];
   var doc = new DOMParser().parseFromString(html, 'text/html');
   var results = [].slice.call(doc.body.children);
   updateResults(results);
