@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name        Copyable Tracker List
 // @namespace   dogancelik.com
-// @include     http://torrenttrackerlist.com/torrent-tracker-list/
-// @version     1.0.0
+// @include     http://torrenttrackerlist.com/torrent-tracker-list/*
+// @include     http://www.torrenttrackerlist.com/torrent-tracker-list/*
+// @version     1.0.1
 // @grant       none
 // ==/UserScript==
 
