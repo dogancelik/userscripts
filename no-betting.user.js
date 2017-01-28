@@ -7,7 +7,8 @@
 // @include     *albet*
 // @include     *betpas*
 // @include     *forex*
-// @version     1.0.1
+// @include     *bahsegel*
+// @version     1.0.2
 // @grant       none
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/no-betting.user.js
 // ==/UserScript==
