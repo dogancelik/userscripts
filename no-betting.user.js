@@ -9,7 +9,8 @@
 // @include     *forex*
 // @include     *bahsegel*
 // @include     *rivalo*
-// @version     1.0.3
+// @include     *rotabet*
+// @version     1.0.4
 // @grant       none
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/no-betting.user.js
 // ==/UserScript==
