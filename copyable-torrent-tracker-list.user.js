@@ -4,16 +4,22 @@
 // @include     http://torrenttrackerlist.com/torrent-tracker-list/*
 // @include     http://www.torrenttrackerlist.com/torrent-tracker-list/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/copyable-torrent-tracker-list.user.js
-// @version     1.0.2
+// @version     1.1.0
 // @grant       none
 // ==/UserScript==
 
-var pre = document.querySelector('pre.prettyprint');
+function getTrackerList () {
+  return document.querySelector('pre.prettyprint').textContent;
+}
+
+var trackers = getTrackerList();
+
+var post = document.querySelector('.entry-content');
+post.innerHTML = '';
 
 var text = document.createElement('textarea');
-text.textContent = pre.textContent;
+text.textContent = trackers;
 text.rows = text.textContent.split('\n').length;
 text.readOnly = true;
 
-pre.parentNode.insertBefore(text, pre);
-pre.parentNode.removeChild(pre);
+post.appendChild(text);
