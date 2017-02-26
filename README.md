@@ -8,3 +8,4 @@ These are not mine:
 
 * [direct-links-out](https://github.com/nokeya/direct-links-out)
 * [AntiAdware](https://github.com/HandyUserscripts/AntiAdware)
+* [AdsBypasser](https://adsbypasser.github.io/)
