@@ -11,7 +11,7 @@
 // @include     https://*.bp.blogspot.com/*
 // @include     https://static.wixstatic.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.1.2
+// @version     1.2.0
 // @grant       none
 // ==/UserScript==
 
@@ -62,7 +62,7 @@ redirects['popsugar-assets.com'] = function () {
 
 redirects['blogspot.com'] = function () {
   if (location.pathname.indexOf('/s1600/') === -1) {
-    location.pathname = location.pathname.replace(/\/s[0-9]+\//, '/s1600/');
+    location.pathname = location.pathname.replace(/\/s[0-9]+(-h)?\//, '/s1600/');
   }
 };
 
