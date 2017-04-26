@@ -12,7 +12,7 @@
 // @include     https://static.wixstatic.com/*
 // @include     https://thechive.files.wordpress.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.3.0
+// @version     1.3.1
 // @grant       none
 // ==/UserScript==
 
@@ -47,7 +47,7 @@ redirects['whicdn.com'] = function () {
 };
 
 redirects['cdninstagram.com'] = function () {
-  var size = /s|p[0-9]+x[0-9]+\//i;
+  var size = /(s|p)[0-9]+x[0-9]+\//i;
   if (size.test(location.pathname)) {
     location.pathname = location.pathname.replace(size, '');
   }
