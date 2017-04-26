@@ -10,8 +10,9 @@
 // @include     https://media*.popsugar-assets.com/*
 // @include     https://*.bp.blogspot.com/*
 // @include     https://static.wixstatic.com/*
+// @include     https://thechive.files.wordpress.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.2.0
+// @version     1.3.0
 // @grant       none
 // ==/UserScript==
 
@@ -69,6 +70,12 @@ redirects['blogspot.com'] = function () {
 redirects['wixstatic.com'] = function () {
   if (location.pathname.indexOf('/v1/') > -1) {
     location.pathname = location.pathname.split('/').slice(0, 3).join('/');
+  }
+};
+
+redirects['wordpress.com'] = function () {
+  if (location.search.length > 0) {
+    location.search = '';
   }
 };
 
