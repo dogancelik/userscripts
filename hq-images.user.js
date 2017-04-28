@@ -10,9 +10,9 @@
 // @include     https://media*.popsugar-assets.com/*
 // @include     https://*.bp.blogspot.com/*
 // @include     https://static.wixstatic.com/*
-// @include     https://thechive.files.wordpress.com/*
+// @include     https://*.files.wordpress.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.3.1
+// @version     1.3.2
 // @grant       none
 // ==/UserScript==
 
