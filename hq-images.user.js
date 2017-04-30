@@ -13,7 +13,7 @@
 // @include     https://*.files.wordpress.com/*
 // @include     https://*.static.flickr.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.4.0
+// @version     1.4.1
 // @grant       none
 // ==/UserScript==
 
@@ -81,7 +81,7 @@ redirects['wordpress.com'] = function () {
 };
 
 redirects['flickr.com'] = function () {
-  if (location.pathname.indexOf('_o.') === -1 && location.pathname.indexOf('_z.') === 0) {
+  if (location.pathname.indexOf('_o.') === -1 && location.pathname.indexOf('_z.') === -1) {
     location.pathname = location.pathname.replace(/([a-z0-9]+_[a-z0-9]+)(\w*)(\.\w+)$/, '$1_z$3');
   }
 };
