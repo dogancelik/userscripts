@@ -11,8 +11,9 @@
 // @include     https://*.bp.blogspot.com/*
 // @include     https://static.wixstatic.com/*
 // @include     https://*.files.wordpress.com/*
+// @include     https://*.static.flickr.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.3.2
+// @version     1.4.0
 // @grant       none
 // ==/UserScript==
 
@@ -76,6 +77,12 @@ redirects['wixstatic.com'] = function () {
 redirects['wordpress.com'] = function () {
   if (location.search.length > 0) {
     location.search = '';
+  }
+};
+
+redirects['flickr.com'] = function () {
+  if (location.pathname.indexOf('_o.') === -1 && location.pathname.indexOf('_z.') === 0) {
+    location.pathname = location.pathname.replace(/([a-z0-9]+_[a-z0-9]+)(\w*)(\.\w+)$/, '$1_z$3');
   }
 };
 
