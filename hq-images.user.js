@@ -13,7 +13,7 @@
 // @include     https://*.files.wordpress.com/*
 // @include     https://*.static.flickr.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.4.1
+// @version     1.4.2
 // @grant       none
 // ==/UserScript==
 
@@ -79,6 +79,8 @@ redirects['wordpress.com'] = function () {
     location.search = '';
   }
 };
+
+redirects['wp.com'] = redirects['wordpress.com'];
 
 redirects['flickr.com'] = function () {
   if (location.pathname.indexOf('_o.') === -1 && location.pathname.indexOf('_z.') === -1) {
