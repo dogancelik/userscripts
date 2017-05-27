@@ -9,11 +9,12 @@
 // @include     https://instagram.*.fbcdn.net/*
 // @include     https://media*.popsugar-assets.com/*
 // @include     https://*.bp.blogspot.com/*
+// @include     https://*.googleusercontent.com/*
 // @include     https://static.wixstatic.com/*
 // @include     https://*.files.wordpress.com/*
 // @include     https://*.static.flickr.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.4.2
+// @version     1.5.0
 // @grant       none
 // ==/UserScript==
 
@@ -64,9 +65,11 @@ redirects['popsugar-assets.com'] = function () {
 
 redirects['blogspot.com'] = function () {
   if (location.pathname.indexOf('/s1600/') === -1) {
-    location.pathname = location.pathname.replace(/\/s[0-9]+(-h)?\//, '/s1600/');
+    location.pathname = location.pathname.replace(/\/((s|w)[0-9]+(\-h[0-9]+)?)(-h)?\//, '/s1600/');
   }
 };
+
+redirects['googleusercontent.com'] = redirects['blogspot.com'];
 
 redirects['wixstatic.com'] = function () {
   if (location.pathname.indexOf('/v1/') > -1) {
