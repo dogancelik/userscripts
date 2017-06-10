@@ -13,8 +13,9 @@
 // @include     https://static.wixstatic.com/*
 // @include     https://*.files.wordpress.com/*
 // @include     https://*.static.flickr.com/*
+// @include     https://yt*.ggpht.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.5.0
+// @version     1.6.0
 // @grant       none
 // ==/UserScript==
 
@@ -88,6 +89,14 @@ redirects['wp.com'] = redirects['wordpress.com'];
 redirects['flickr.com'] = function () {
   if (location.pathname.indexOf('_o.') === -1 && location.pathname.indexOf('_z.') === -1) {
     location.pathname = location.pathname.replace(/([a-z0-9]+_[a-z0-9]+)(\w*)(\.\w+)$/, '$1_z$3');
+  }
+};
+
+redirects['ggpht.com'] = function () {
+  var a = location.pathname.split('/');
+  if (/^s[0-9]+\-/.test(a[a.length - 2])) {
+    a.splice(a.length - 2, 1);
+    location.pathname = a.join('/');
   }
 };
 
