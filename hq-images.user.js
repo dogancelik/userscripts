@@ -15,7 +15,7 @@
 // @include     https://*.static.flickr.com/*
 // @include     https://yt*.ggpht.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.6.1
+// @version     1.6.2
 // @grant       none
 // ==/UserScript==
 
@@ -65,6 +65,8 @@ redirects['popsugar-assets.com'] = function () {
 };
 
 redirects['blogspot.com'] = function () {
+  if (location.host.indexOf('webcache') > -1) return;
+  
   if (location.pathname.indexOf('/s1600/') === -1) {
     var pn = location.pathname.replace(/\/((s|w)[0-9]+(\-h[0-9]+)?)(-h)?\//, '/s1600/');
     if (pn.indexOf('s1600') === -1) {
