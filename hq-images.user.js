@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        HQ Images
 // @namespace   dogancelik.com
-// @include     https://pbs.twimg.com/media/*
+// @include     https://pbs.twimg.com/*
 // @include     https://*.media.tumblr.com/*
 // @include     https://*.pinimg.com/*
 // @include     https://data*.whicdn.com/*
@@ -15,7 +15,7 @@
 // @include     https://*.static.flickr.com/*
 // @include     https://yt*.ggpht.com/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.6.2
+// @version     1.7.0
 // @grant       none
 // ==/UserScript==
 
@@ -26,8 +26,15 @@ function getRoot () {
 var redirects = {};
 
 redirects['twimg.com'] = function () {
-  if (location.pathname.indexOf(':orig') === -1) {
-    location.pathname = location.pathname.replace(/(\/media\/[\w\-]+\.\w{3})(:\w+)?/, '$1:orig');
+  if (location.pathname.includes('profile_images/')) {
+    var rgx = /(\w{8})(_\w+)(\.jpg)/;
+    if (rgx.test(location.pathname)) {
+      location.pathname = location.pathname.replace(rgx, '$1$3');
+    } 
+  } else if (location.pathname.includes('media/')) {
+    if (location.pathname.indexOf(':orig') === -1) {
+      location.pathname = location.pathname.replace(/(\/media\/[\w\-]+\.\w{3})(:\w+)?/, '$1:orig');
+    }
   }
 };
 
