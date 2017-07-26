@@ -14,8 +14,9 @@
 // @include     https://*.files.wordpress.com/*
 // @include     https://*.static.flickr.com/*
 // @include     https://yt*.ggpht.com/*
+// @include     https://i*.pximg.net/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.7.0
+// @version     1.8.0
 // @grant       none
 // ==/UserScript==
 
@@ -115,5 +116,14 @@ redirects['ggpht.com'] = function () {
     location.pathname = a.join('/');
   }
 };
+
+redirects['pximg.net'] = function () {
+  if (location.pathname.includes('img-master')) {
+    var orig = location.pathname
+      .replace(/c\/[0-9]+x[0-9]+\/img-master/i, 'img-original')
+      .replace(/_master[0-9]+/, '');
+    location.pathname = orig;
+  }
+}
 
 redirects[getRoot()]();
