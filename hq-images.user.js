@@ -16,7 +16,7 @@
 // @include     https://yt*.ggpht.com/*
 // @include     https://i*.pximg.net/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.8.0
+// @version     1.8.1
 // @grant       none
 // ==/UserScript==
 
@@ -28,10 +28,10 @@ var redirects = {};
 
 redirects['twimg.com'] = function () {
   if (location.pathname.includes('profile_images/')) {
-    var rgx = /(\w{8})(_\w+)(\.jpg)/;
+    var rgx = /([\w\-]{8})(_\w+)(\.jpg)/;
     if (rgx.test(location.pathname)) {
       location.pathname = location.pathname.replace(rgx, '$1$3');
-    } 
+    }
   } else if (location.pathname.includes('media/')) {
     if (location.pathname.indexOf(':orig') === -1) {
       location.pathname = location.pathname.replace(/(\/media\/[\w\-]+\.\w{3})(:\w+)?/, '$1:orig');
@@ -51,7 +51,7 @@ redirects['pinimg.com'] = function () {
   }
 };
 
-redirects['whicdn.com'] = function () {  
+redirects['whicdn.com'] = function () {
   if (location.pathname.indexOf('original.') === -1) {
     location.pathname = location.pathname.replace(/\w+\./, 'original.');
   }
@@ -74,7 +74,7 @@ redirects['popsugar-assets.com'] = function () {
 
 redirects['blogspot.com'] = function () {
   if (location.host.indexOf('webcache') > -1) return;
-  
+
   if (location.pathname.indexOf('/s1600/') === -1) {
     var pn = location.pathname.replace(/\/((s|w)[0-9]+(\-h[0-9]+)?)(-h)?\//, '/s1600/');
     if (pn.indexOf('s1600') === -1) {
@@ -124,6 +124,6 @@ redirects['pximg.net'] = function () {
       .replace(/_master[0-9]+/, '');
     location.pathname = orig;
   }
-}
+};
 
 redirects[getRoot()]();
