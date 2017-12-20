@@ -15,8 +15,9 @@
 // @include     https://*.static.flickr.com/*
 // @include     https://yt*.ggpht.com/*
 // @include     https://i*.pximg.net/*
+// @include     https://akimg*.ask.fm/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.8.1
+// @version     1.9.0
 // @grant       none
 // ==/UserScript==
 
@@ -123,6 +124,12 @@ redirects['pximg.net'] = function () {
       .replace(/c\/[0-9]+x[0-9]+\/img-master/i, 'img-original')
       .replace(/_master[0-9]+/, '');
     location.pathname = orig;
+  }
+};
+
+redirects['ask.fm'] = function () {
+  if (!location.pathname.includes('large/')) {
+    location.pathname = location.pathname.replace('normal/', 'large/')
   }
 };
 
