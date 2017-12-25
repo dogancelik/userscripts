@@ -16,8 +16,9 @@
 // @include     https://yt*.ggpht.com/*
 // @include     https://i*.pximg.net/*
 // @include     https://akimg*.ask.fm/*
+// @include     https://image.vsco.co/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.9.0
+// @version     1.10.0
 // @grant       none
 // ==/UserScript==
 
@@ -132,5 +133,12 @@ redirects['ask.fm'] = function () {
     location.pathname = location.pathname.replace('normal/', 'large/')
   }
 };
+
+redirects['vsco.co'] = function () {
+  var rgx = /[0-9]{1,3}\x[0-9]{1,3}\//;
+  if (rgx.test(location.pathname)) {
+    location.pathname = location.pathname.replace(/[0-9]{1,3}\x[0-9]{1,3}\//, '')
+  }
+}
 
 redirects[getRoot()]();
