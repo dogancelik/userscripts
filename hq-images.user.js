@@ -18,7 +18,7 @@
 // @include     https://akimg*.ask.fm/*
 // @include     https://image.vsco.co/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/hq-images.user.js
-// @version     1.10.0
+// @version     1.11.0
 // @grant       none
 // ==/UserScript==
 
@@ -61,7 +61,7 @@ redirects['whicdn.com'] = function () {
 
 redirects['cdninstagram.com'] = function () {
   var size = /(s|p)[0-9]+x[0-9]+\//i;
-  if (size.test(location.pathname)) {
+  if (size.test(location.pathname) && !location.pathname.includes('/vp/')) {
     location.pathname = location.pathname.replace(size, '');
   }
 };
