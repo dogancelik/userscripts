@@ -4,37 +4,45 @@
 // @namespace   dogancelik.com
 // @include     http*://www.embedupload.com/?d=*
 // @include     http*://embedupload.com/?d=*
-// @version     1.0
+// @version     2.0
+// @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @grant       GM_addStyle
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
+// @grant       GM.addStyle
+// @grant       GM.getValue
+// @grant       GM.setValue
+// @grant       GM.registerMenuCommand
+// @grant       GM.xmlHttpRequest
 // ==/UserScript==
 
 function getReveal() {
-  return GM_getValue("reveal");
+  return GM.getValue('reveal');
 }
 
-if (getReveal() === undefined)
-  GM_setValue("reveal", 0);
-
-GM_registerMenuCommand("Reveal links by click", function() {
-  GM_setValue("reveal", 0);
+getReveal().then(val => {
+  if (val === undefined)
+    GM.setValue('reveal', 0);
 });
 
-GM_registerMenuCommand("Reveal all links on load", function() {
-  GM_setValue("reveal", 1);
+GM.registerMenuCommand("Reveal links by click", function() {
+  GM.setValue("reveal", 0);
 });
 
-GM_addStyle(".DownloadNowFix { font-size: 12px; font-style: normal; }");
+GM.registerMenuCommand("Reveal all links on load", function() {
+  GM.setValue("reveal", 1);
+});
+
+GM.addStyle(".DownloadNowFix { font-size: 12px; font-style: normal; }");
 
 var exceptions = ['?MF'],
     split_first = "You should copy/paste the download link on a new browser window : ",
     split_last = "</b>";
 
 function getLink(link) {
-  GM_xmlhttpRequest({
+  GM.xmlHttpRequest({
     url: link.href,
     method: "GET",
     onload: function(res) {
@@ -70,7 +78,8 @@ function loopLinks(callback) {
   }
 }
 
-if (getReveal() === 0) {
+getReveal().then(val => {
+if (val === 0) {
   loopLinks(function(el) {
     el.onclick = function(e) {
       if (el.className !== "DownloadNowFix") {
@@ -79,10 +88,11 @@ if (getReveal() === 0) {
       }
     };
   });
-} else if (getReveal() === 1) {
+} else if (val === 1) {
   window.onload = function() {
     loopLinks(function(el) {
       getLink(el);
     });
   };
 }
+});
