@@ -4,6 +4,7 @@ Userscripts I wrote, please check description of them for more info.
 
 ## Recommended userscripts (not mine)
 * [direct-links-out](https://github.com/nokeya/direct-links-out)
+* [Pinterest without registration](https://greasyfork.org/en/scripts/6325-pinterest-without-registration)
 
 ### Ads
 * [AntiAdware](https://github.com/HandyUserscripts/AntiAdware)
