@@ -14,4 +14,5 @@ Userscripts I wrote, please check description of them for more info.
 
 ### Youtube
 * [Auto Close YouTube Ads](https://greasyfork.org/en/scripts/9165-auto-close-youtube-ads)
+* [Iridium](https://github.com/ParticleCore/Iridium) (buggy, [see #730](https://github.com/ParticleCore/Iridium/issues/730))
 * [YoutubeFocusMode](https://github.com/WuTheFWasThat/YoutubeFocusMode)
