@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SoftArchive Load Links Inline
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.2.0
 // @description  Retrieve links without leaving search page (only Verified Uploads)
 // @author       Doğan Çelik
 // @match        https://sanet.st/*
@@ -34,13 +34,15 @@ line-height: 1em;
 width: 99%;
 background-color: inherit;
 color: inherit;
+white-space: pre;
+overflow-x: scroll;
 }
 </style>`);
 
   function parseLinks(html) {
-      let dom = $('<div></div>').append($.parseHTML(html));
-      console.log(dom);
-      return dom.find('.c-dl-links a[rel~="external"]').map((i, e) => e.href).get();
+      let dom = $('<div></div>').append($.parseHTML(html)),
+          links = dom.find('.c-dl-links a[rel~="external"]').map((i, e) => e.href).get();
+      return links.sort();
   }
 
   function onClick(event) {
@@ -49,8 +51,11 @@ color: inherit;
       $.ajax({
           url: $(event.currentTarget).attr('href'),
           success: function(data) {
-              let links = parseLinks(data).join('\n');
-              $(event.data.filerow).find('.markeredBlock').after(`<div class="markeredBlock inline-links"><textarea readonly>${links}</textarea></div>`);
+              let links = parseLinks(data),
+                  linksPre = links.join('\n') + '\n';
+              $(event.data.filerow).find('.markeredBlock').after(`<div class="markeredBlock inline-links">
+<textarea readonly rows="${links.length + 1}">${linksPre}</textarea>
+</div>`);
               $(event.currentTarget).hide();
           }
       });
