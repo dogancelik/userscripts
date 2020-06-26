@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Add Username to Post URL
+// @name         Instagram Add Username to Post URL
 // @namespace    dogancelik.com
 // @version      0.3.0
 // @description  Add username to post URL
