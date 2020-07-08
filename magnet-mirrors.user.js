@@ -7,14 +7,14 @@
 // @include     *://rarbg.to/torrent/*
 // @include     *://rarbgmirrored.org/torrent/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/magnet-mirrors.user.js
-// @version     1.0.0
+// @version     1.0.1
 // @grant       none
 // ==/UserScript==
 
 /* eslint-env jquery, es6 */
 
 function query(query) {
-	Array.prototype.slice.call(document.querySelectorAll(query));
+	return Array.prototype.slice.call(document.querySelectorAll(query));
 }
 
 function addStyle(style) {
