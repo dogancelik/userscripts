@@ -9,6 +9,7 @@ Check the last modification date of the scripts, they may be broken.
 * [EmbedUpload Fix](embedupload-fix.user.js)
 * [emuparadise fast download](emuparadise-fast-download.user.js)
 * [Facebook HTML5 Video](facebook-html5-video.user.js)
+* [Fast Redirect](fast-redirect.user.js)
 * [Github Add Commented](github-add-commented.user.js)
 * ~~[HQ Images](hq-images.user.js)~~ (Use **Image Max URL** instead)
 * [Instagram Add Username to Post URL](instagram-add-username-to-post-url.user.js)
@@ -31,6 +32,7 @@ Check the last modification date of the scripts, they may be broken.
 * [Pinterest without registration](https://greasyfork.org/en/scripts/6325-pinterest-without-registration)
 * [Image Max URL](https://greasyfork.org/en/scripts/36662-image-max-url)
 * [Google Tracking-B-Gone](https://greasyfork.org/en/scripts/1810-google-tracking-b-gone)
+* [Google Hit Hider by Domain](https://greasyfork.org/en/scripts/1682-google-hit-hider-by-domain-search-filter-block-sites)
 
 ### Ads
 * [AntiAdware](https://github.com/HandyUserscripts/AntiAdware)
