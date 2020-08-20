@@ -6,8 +6,9 @@
 // @include     *://*.nyaa.*/*
 // @include     *://rarbg.to/torrent/*
 // @include     *://rarbgmirrored.org/torrent/*
+// @include     *://www.btmovi.space/so/*
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/magnet-mirrors.user.js
-// @version     1.0.1
+// @version     1.1.0
 // @grant       none
 // ==/UserScript==
 
@@ -23,19 +24,26 @@ function addStyle(style) {
 	document.head.appendChild(el);
 }
 
-function getMagnetInfo(url) {
-	let part1 = url.split('magnet:?xt=urn:btih:')[1].split('&dn='),
-			title = part1[1].split('&tr=')[0];
+function getMagnetInfo(el) {
+	let hash, title;
+	if (el.href.includes('.html')) {
+		hash = el.href.match(/(\w+)\.html/i)[1];
+		title = el.textContent.trim();
+	} else if (el.href.includes('magnet:')) {
+		hash = el.href.match(/urn:btih:(\w+)/i)[1];
+		title = el.href.match(/&dn=([^&]+)/i)[1];
+		title = decodeURIComponent(title).trim();
+	}
 
 	return {
-		hash: part1[0],
-		title: decodeURIComponent(title).trim()
+		hash: hash,
+		title: title
 	};
 }
 
 function insertClone(el, href) {
 	let clone = el.cloneNode(),
-			text = href.match(/https?:\/\/(\w+)/i)[1];
+		text = href.match(/https?:\/\/(\w+)/i)[1];
 
 	clone.innerText = '[' + text.substr(0, 2) + ']';
 	clone.href = href;
@@ -49,7 +57,7 @@ function insertClone(el, href) {
 }
 
 function addMirrors(el, i) {
-	let info = getMagnetInfo(el.href);
+	let info = getMagnetInfo(el);
 	insertClone(el, `http://itorrents.org/torrent/${info.hash}.torrent`);
 	insertClone(el, `http://torrage.info/torrent.php?h=${info.hash}`);
 	insertClone(el, `http://btcache.me/torrent/${info.hash.toUpperCase()}`);
@@ -78,10 +86,16 @@ function rarbg() {
 	query('.lista a[href^="magnet:"]').forEach(addMirrors);
 }
 
+function btmovi() {
+	query('.search-item .item-title h3 a').forEach(addMirrors);
+}
+
 if (window.location.hostname.includes('nyaa.net')) {
 	nyaaNet();
 } else if (window.location.hostname.includes('nyaa.si')) {
 	nyaaSi();
 } else if (window.location.hostname.includes('rarbg')) {
 	rarbg();
+} else if (window.location.hostname.includes('btmovi')) {
+	btmovi();
 }
