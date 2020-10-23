@@ -8,7 +8,7 @@ Check the last modification date of the scripts, they may be broken.
 * [Archive.today Quick Copy Info](archive-today-quick-copy-info.user.js)
 * [Archive.today Rewrite WIP](archive-today-rewrite-wip.user.js)
 * ~~[Better AllDebrid](better-alldebrid.user.js)~~
-* [Copyable Tracker List](copyable-torrent-tracker-list.user.js)
+* ~~[Copyable Tracker List](copyable-torrent-tracker-list.user.js)~~ (Use [this](https://github.com/XIU2/TrackersListCollection) instead)
 * [EmbedUpload Fix](embedupload-fix.user.js)
 * [emuparadise fast download](emuparadise-fast-download.user.js)
 * [Facebook HTML5 Video](facebook-html5-video.user.js)
@@ -42,8 +42,10 @@ Check the last modification date of the scripts, they may be broken.
 * [AntiAdware](https://github.com/HandyUserscripts/AntiAdware)
 * [AdsBypasser](https://adsbypasser.github.io/)
 
-### Youtube etc.
+### Youtube, Twitch etc.
 * [Auto Close YouTube Ads](https://greasyfork.org/en/scripts/9165-auto-close-youtube-ads)
+* [Youtube Ad Auto Skipper](https://greasyfork.org/en/scripts/408016-youtube-ad-auto-skipper)
 * [Iridium](https://github.com/ParticleCore/Iridium)
 * [Youtube Focus Mode](https://github.com/WuTheFWasThat/YoutubeFocusMode)
 * [Spotify Ad Muter](https://gist.github.com/marcbelmont/1ea63270867a4e8786dd5f172d8d4489)
+* [Twitch Auto Channel Points Claimer](https://greasyfork.org/en/scripts/392348-twitch-auto-channel-points-claimer)
