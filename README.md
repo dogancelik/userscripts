@@ -4,6 +4,9 @@
 
 Check the last modification date of the scripts, they may be broken.
 
+* [Archive.today Auto-submit](archive-today-auto-submit.user.js)
+* [Archive.today Quick Copy Info](archive-today-quick-copy-info.user.js)
+* [Archive.today Rewrite WIP](archive-today-rewrite-wip.user.js)
 * ~~[Better AllDebrid](better-alldebrid.user.js)~~
 * [Copyable Tracker List](copyable-torrent-tracker-list.user.js)
 * [EmbedUpload Fix](embedupload-fix.user.js)
