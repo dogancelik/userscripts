@@ -27,6 +27,7 @@ Check the last modification date of the scripts, they may be broken.
 * [No Betting](no-betting.user.js)
 * [puush preview](puush-preview.user.js)
 * [SoftArchive Load Links Inline](softarchive-load-links-inline.user.js)
+* [Twitter Remove GIFs](twitter-remove-gifs.user.js)
 * [Warez-BB Search Sub-forums](warezbb-search-subforums.user.js)
 * [YouTube Search Export Links](youtube-search-export-links.user.js)
 
