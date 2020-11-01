@@ -1,37 +1,58 @@
 // ==UserScript==
 // @name         4chan Quick Copy Info
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.2.0
 // @description  Adds buttons for copying OP name, subject, message, date, number, thumbnail & file URL
-// @match        https://desuarchive.org/*
 // @match        https://boards.4chan.org/*
 // @match        https://boards.4channel.org/*
+// @match        https://yuki.la/*
+// @match        https://desuarchive.org/*
+// @match        https://archive.nyafuu.org/*
+// @match        https://archive.rebeccablacktech.com/*
+// @match        https://archived.moe/*
+// @match        https://archive.4plebs.org/*
+// @match        https://thebarchive.com/*
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @grant        none
 // ==/UserScript==
 
 /* eslint-env es6, jquery */
 
+this.$ = this.jQuery = jQuery.noConflict(true);
+
 var detected = '',
 	queries = {
 		fourchan: {
+			_domains: [
+				'boards.4channel.org',
+				'boards.4chan.org',
+				'yuki.la'
+			],
 			op: ['.post.op', '$'],
 			name: ['.postInfo.desktop .nameBlock'],
 			subject: ['.postInfo.desktop .subject'],
 			message: ['.postMessage', '@innerText'],
-			datetime: ['.postInfo.desktop .dateTime', 'data-utc', (v) => (new Date(`${v}000`))],
-			number: ['.postInfo.desktop .postNum.desktop a:last-child'],
+			datetime: ['.postInfo.desktop .dateTime', 'data-utc', (v) => (new Date(parseInt(`${v}000`, 10)))],
+			number: ['.postInfo.desktop .postNum.desktop a:last-of-type'],
 			thumbnail: ['.file .fileThumb img', 'src'],
 			file: ['.file .fileThumb', 'href'],
 		},
 		desuarchive: {
-			op: ['.post_is_op', '$'],
+			_domains: [
+				'desuarchive.org',
+				'archive.nyafuu.org',
+				'archive.rebeccablacktech.com',
+				'archived.moe',
+				'archive.4plebs.org',
+				'thebarchive.com',
+			],
+			op: ['article.thread', '$'],
 			name: ['> header > .post_data > .post_poster_data'],
 			subject: ['> header > .post_data > .post_title'],
 			message: ['> .text', '@innerText'],
 			datetime: ['> header > .post_data > .time_wrap > time', 'datetime', (v) => (new Date(v))],
 			number: ['> header > .post_data > .time_wrap ~ a[data-post]', 'data-post'],
-			thumbnail: ['> .thread_image_box > .thread_image_link > .post_image', 'src'],
+			thumbnail: ['> .thread_image_box > .thread_image_link > img', 'src'],
 			file: ['> .thread_image_box > .thread_image_link', 'href'],
 		}
 	};
@@ -72,10 +93,14 @@ function clip(event, text) {
 }
 
 function detectSite() {
-	if (location.hostname.indexOf('4channel.org') > -1 || location.hostname.indexOf('4chan.org') > -1) {
-		detected = 'fourchan';
-	} else if (location.hostname.indexOf('desuarchive.org') > -1) {
-		detected = 'desuarchive';
+	let keys = Object.keys(queries);
+	for (let key of keys) {
+		let domains = queries[key]._domains;
+		for (let domain of domains) {
+			if (location.hostname.indexOf(domain) > -1) {
+				detected = key;
+			}
+		}
 	}
 
 	return detected;
@@ -87,15 +112,15 @@ function qciEach(index, element) {
 	let op = $(element),
 		qci = $(`<div id="quick-copy-info-${index}" class="quick-copy-info">
 	<b>Copy:</b>
-	<button class="qci-name">Name</button>
-	<button class="qci-subject">Subject</button>
-	<button class="qci-message">Message</button>
+	<button type="button" class="qci-name">Name</button>
+	<button type="button" class="qci-subject">Subject</button>
+	<button type="button" class="qci-message">Message</button>
 	<span>|</span>
-	<button class="qci-date">Date</button>
-	<button class="qci-number">Number</button>
+	<button type="button" class="qci-date">Date</button>
+	<button type="button" class="qci-number">Number</button>
 	<span>|</span>
-	<button class="qci-thumbnail">Thumbnail</button>
-	<button class="qci-file">File</button>
+	<button type="button" class="qci-thumbnail">Thumbnail</button>
+	<button type="button" class="qci-file">File</button>
 </div>`);
 
 	qci.find('.qci-name').on('click', (e) => clip(e, getThreadData('name', op)));
