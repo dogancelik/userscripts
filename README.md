@@ -3,7 +3,10 @@
 ## My Userscripts
 
 Check the last modification date of the scripts, they may be broken.
+The scripts are tested with Tampermonkey only.
+Some userscripts may not work because `GM_` functions are deprecated in Greasemonkey v4+.
 
+* [4chan Quick Copy Info](4chan-quick-copy-info.user.js)
 * [Archive.today Auto-submit](archive-today-auto-submit.user.js)
 * [Archive.today Quick Copy Info](archive-today-quick-copy-info.user.js)
 * [Archive.today Rewrite WIP](archive-today-rewrite-wip.user.js)
