@@ -29,6 +29,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Mirrorcreator Fast Links](mirrorcreator-fast-links.user.js)
 * [Mycroft Project Show Source](mycroft-show-source.user.js)
 * [No Betting](no-betting.user.js)
+* [Pinterest Redirect to WWW](pinterest-redirect-to-www.user.js)
 * [puush preview](puush-preview.user.js)
 * [SoftArchive Load Links Inline](softarchive-load-links-inline.user.js)
 * [Twitter Remove GIFs](twitter-remove-gifs.user.js)
