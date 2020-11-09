@@ -27,6 +27,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [KLCP Show Mirrors](klcp-show-mirrors.user.js)
 * [Magnet Mirrors](magnet-mirrors.user.js)
 * [Mirrorcreator Fast Links](mirrorcreator-fast-links.user.js)
+* [Mirrored.to Out URL Fix](mirrored-out-url-fix.user.js)
 * [Mycroft Project Show Source](mycroft-show-source.user.js)
 * [No Betting](no-betting.user.js)
 * [Pinterest Redirect to WWW](pinterest-redirect-to-www.user.js)
