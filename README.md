@@ -10,6 +10,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Archive.today Auto-submit](archive-today-auto-submit.user.js)
 * [Archive.today Quick Copy Info](archive-today-quick-copy-info.user.js)
 * [Archive.today Rewrite WIP](archive-today-rewrite-wip.user.js)
+* [Archive.today Skip Loading GIF](archive-today-skip-loading-gif.user.js)
 * [Archive.today This Page](archive-today-this-page.user.js)
 * ~~[Better AllDebrid](better-alldebrid.user.js)~~
 * ~~[Copyable Tracker List](copyable-torrent-tracker-list.user.js)~~ (Use [this](https://github.com/XIU2/TrackersListCollection) instead)
