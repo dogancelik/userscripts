@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Archive.today Quick Copy Info
 // @namespace    dogancelik.com
-// @version      0.2.0
+// @version      0.2.1
 // @description  Adds buttons for copying saved URL, archived URL, page title & tweet text
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @match        https://archive.today/*
@@ -44,7 +44,7 @@ function getContextData(site, get) {
 				data.wiki.url.indexOf('threadreaderapp.com') > -1;
 		} else if (get === 'text') {
 			let tweet;
-			if (tweet = document.querySelector('div[old-class="js-tweet-text-container"]')) {
+			if (tweet = document.querySelector('div[old-class*="permalink-tweet-container"] div[old-class="js-tweet-text-container"]')) {
 				return tweet.textContent.trim();
 			} else if (tweet = document.querySelector('div[id="tweet_1"]')) {
 				return tweet.textContent.replace('\uF0C1', '').trim();

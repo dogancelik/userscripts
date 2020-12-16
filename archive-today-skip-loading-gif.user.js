@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Archive.today Skip Loading GIF
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.2.0
 // @description  Try every domain until you skip the loading GIF
 // @match        https://archive.today/*
 // @match        https://archive.is/*
@@ -28,8 +28,9 @@ function getNextDomain(hostname) {
 	return domains[index + 1] ? domains[index + 1] : domains[0];
 }
 
-var loading = document.querySelector('img[src*="henley-putnam.edu"][src$="loading.gif"]');
+var loading = document.querySelector('img[src$="loading.gif"]'),
+	isWip = window.location.pathname.indexOf('/wip/') === 0;
 
-if (loading) {
+if (!isWip && loading) {
 	location.hostname = getNextDomain(location.hostname);
 }
