@@ -13,6 +13,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Archive.today Skip Loading GIF](archive-today-skip-loading-gif.user.js)
 * [Archive.today This Page](archive-today-this-page.user.js)
 * ~~[Better AllDebrid](better-alldebrid.user.js)~~
+* [Copy Page Title as Link](copy-page-title-as-link.user.js)
 * ~~[Copyable Tracker List](copyable-torrent-tracker-list.user.js)~~ (Use [this](https://github.com/XIU2/TrackersListCollection) instead)
 * [EmbedUpload Fix](embedupload-fix.user.js)
 * [emuparadise fast download](emuparadise-fast-download.user.js)
@@ -31,6 +32,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Mirrored.to Out URL Fix](mirrored-out-url-fix.user.js)
 * [Mycroft Project Show Source](mycroft-show-source.user.js)
 * [No Betting](no-betting.user.js)
+* [Pinterest Add Info to Page Title](pinterest-add-info-to-page-title.user.js)
 * [Pinterest Redirect to WWW](pinterest-redirect-to-www.user.js)
 * [puush preview](puush-preview.user.js)
 * [SoftArchive Load Links Inline](softarchive-load-links-inline.user.js)
