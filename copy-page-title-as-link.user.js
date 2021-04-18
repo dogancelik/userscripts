@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Copy Page Title as Link
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.2.0
 // @description  Copy page address with page title or selected text as link to WYSIWYG editors
 // @match        *://*/*
 // @grant        GM_registerMenuCommand
@@ -10,25 +10,33 @@
 
 /* eslint-env jquery, browser, es6 */
 
-const clickClass = 'click-required';
+const mainSelector = '#copy-to-clipboard',
+	clickClass = 'click-required';
 
 $(`<style>
-#copy-to-clipboard {
+${mainSelector} {
 	position: fixed;
 	left: -9999px;
 }
 
-#copy-to-clipboard.${clickClass} {
+${mainSelector}.${clickClass} {
 	z-index: 9999;
-	transform: translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
 	top: 50%;
-	left: 10%;
-	right: 10%;
+	left: 50%;
 	background: rgba(0, 0, 0, 0.75);
 	color: white;
 	text-align: center;
-	padding: 1vh;
-	font-size: 10vh;
+	padding: 10%;
+	font-size: 5vw;
+	border: 1px solid white;
+	animation: borderChange 1s linear infinite alternate-reverse;
+	box-sizing: content-box;
+}
+
+@keyframes borderChange {
+	0% { border-width: 1px; }
+	100% { border-width: 5px; }
 }
 </style>`).appendTo('head');
 
@@ -57,11 +65,25 @@ function copyToClipboard(event) {
 }
 
 function showClickBox(type) {
+	function focus() {
+		$link
+			.addClass(clickClass)
+			.focus()
+			.delay(5000)
+			.fadeOut('fast', blur)
+	}
+
+	function blur() {
+		$link
+			.clearQueue()
+			.blur()
+			.removeClass(clickClass);
+	}
+
 	$link
 		.text('Click to copy')
 		.data({ type })
-		.addClass(clickClass)
-		.focus();
+		.fadeIn('fast', focus)
 }
 
 GM_registerMenuCommand('[T] Copy page title', () => showClickBox('page-title'), 'T');
