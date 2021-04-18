@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Twitter Remove GIFs
 // @namespace    dogancelik.com
-// @version      0.2.0
+// @version      0.2.1
 // @description  Removes all GIFs on Twitter
 // @match        https://twitter.com/*
 // @require      https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.min.js
+// @icon         https://abs.twimg.com/favicons/twitter.ico
 // @grant        none
 // ==/UserScript==
 

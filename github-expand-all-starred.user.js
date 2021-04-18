@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Github Expand All Starred
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.1.1
 // @description  Expand starred repositories on scroll
 // @match        https://github.com/
+// @icon         https://github.githubassets.com/favicons/favicon.png
 // @grant        none
 // ==/UserScript==
 
