@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Twitter Remove GIFs
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.2.0
 // @description  Removes all GIFs on Twitter
 // @match        https://twitter.com/*
+// @require      https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.min.js
 // @grant        none
 // ==/UserScript==
 
@@ -31,9 +32,11 @@ function removeGifs() {
 	}
 
 	for (let node of nodes) {
-		node.previousSibling.removeAttribute('style');
-		node.parentNode.removeChild(node);
+		if (node.previousSibling) {
+			node.previousSibling.removeAttribute('style');
+			node.parentNode.removeChild(node);
+		}
 	}
 }
 
-document.addEventListener('scroll', removeGifs, false);
+document.addEventListener('scroll', debounce(removeGifs, 50), false);
