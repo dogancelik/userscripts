@@ -5,7 +5,7 @@
 // @include     https://github.com/issues/*
 // @include     https://github.com/issues?*
 // @include     https://github.com/issues
-// @version     1.2.0
+// @version     1.3.0
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @updateURL   https://github.com/dogancelik/userscripts/raw/master/github-add-commented.user.js
 // @icon        https://github.githubassets.com/favicons/favicon.png
@@ -15,17 +15,18 @@
 /* eslint-env jquery, greasemonkey */
 
 var username = document.querySelector('meta[name="octolytics-actor-login"]').getAttribute('content'),
-	defaultCommenterQuery = 'is:open is:issue commenter:' + username,
+	defaultCommenterQuery = 'is:open is:issue archived:false ',
 	justCommenterQuery = 'commenter:' + username;
 
 function addItem(i, links) {
-	let query = encodeURIComponent(defaultCommenterQuery),
-		html = `<a href="/issues?q=${query}"
+	let allQuery = encodeURIComponent(defaultCommenterQuery + justCommenterQuery),
+		justQuery = encodeURIComponent(justCommenterQuery),
+		html = `<a href="/issues?q=${allQuery}"
 	aria-label="Issues commented on by you"
 	class="js-selected-navigation-item subnav-item"
-	data-selected-links="dashboard_commented /issues?q=${query}"
+	data-selected-links="dashboard_commented /issues?q=${allQuery}"
 	role="tab">Commented</a>`;
-	if (window.location.search.indexOf(query) > -1) {
+	if (window.location.search.indexOf(justQuery) > -1) {
 		html = html.replace('js-selected-navigation-item', 'js-selected-navigation-item selected');
 	}
 	links.innerHTML = links.innerHTML + html;
