@@ -21,6 +21,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Fast Redirect](fast-redirect.user.js)
 * [Github Add Commented](github-add-commented.user.js)
 * ~~[HQ Images](hq-images.user.js)~~ (Use **Image Max URL** instead)
+* [ICOConvert Auto Upload & Download](icoconvert-auto-upload-download.user.js)
 * [Instagram Add Username to Post URL](instagram-add-username-to-post-url.user.js)
 * [IQDB Auto-submit](iqdb-auto-submit.user.js)
 * [IQDB Drag & Drop Upload](iqdb-dd-upload.user.js)
