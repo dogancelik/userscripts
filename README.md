@@ -27,6 +27,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [IQDB Drag & Drop Upload](iqdb-dd-upload.user.js)
 * [Japanese Emotes Load All Pages](japanese-emotes-load-all-pages.user.js)
 * ~~[KickassTorrents Skip Url Confirm](kickasstorrents-skip-url-confirm.user.js)~~ (This website is dead)
+* [KHInsider Quick Download](khinsider-quick-download.user.js)
 * [KLCP Show Mirrors](klcp-show-mirrors.user.js)
 * [Magnet Mirrors](magnet-mirrors.user.js)
 * [Mirrorcreator Fast Links](mirrorcreator-fast-links.user.js)
