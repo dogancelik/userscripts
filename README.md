@@ -38,6 +38,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Pinterest Redirect to WWW](pinterest-redirect-to-www.user.js)
 * [puush preview](puush-preview.user.js)
 * [SoftArchive Load Links Inline](softarchive-load-links-inline.user.js)
+* [Teams Fix Mute Key](teams-fix-mute-key.user.js)
 * [Twitter Remove GIFs](twitter-remove-gifs.user.js)
 * [WallpaperMaiden Quick Download](wallpapermaiden-quick-download.user.js)
 * [Warez-BB Search Sub-forums](warezbb-search-subforums.user.js)
