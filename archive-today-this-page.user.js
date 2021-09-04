@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Archive.today This Page
 // @namespace    dogancelik.com
-// @version      0.1.0
+// @version      0.1.1
 // @description  Adds a menu item with a keyboard shortcut to archive the current page.
 // @match        *://*/*
+// @exclude      https://archive.is/*
 // @grant        GM_registerMenuCommand
 // @grant        GM_openInTab
 // ==/UserScript==
