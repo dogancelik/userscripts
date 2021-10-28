@@ -42,6 +42,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [StreamRaiders Open in Window](streamraiders-open-in-window.user.js)
 * [Teams Fix Mute Key](teams-fix-mute-key.user.js)
 * [Twitter Remove GIFs](twitter-remove-gifs.user.js)
+* [Twitter Remove Popup](twitter-remove-popup.user.js)
 * [WallpaperMaiden Quick Download](wallpapermaiden-quick-download.user.js)
 * [Warez-BB Search Sub-forums](warezbb-search-subforums.user.js)
 * [YouTube Search Export Links](youtube-search-export-links.user.js)
