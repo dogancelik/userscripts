@@ -40,6 +40,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [puush preview](puush-preview.user.js)
 * [SoftArchive Load Links Inline](softarchive-load-links-inline.user.js)
 * [StreamRaiders Open in Window](streamraiders-open-in-window.user.js)
+* [Swagger Copy Path](swagger-copy-path.user.js)
 * [Teams Fix Mute Key](teams-fix-mute-key.user.js)
 * [Twitter Remove GIFs](twitter-remove-gifs.user.js)
 * [Twitter Remove Popup](twitter-remove-popup.user.js)
