@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Fast Redirect
 // @namespace    dogancelik.com
-// @version      0.6.0
+// @version      0.7.0
 // @description  Redirect to websites without waiting
 // @match        https://www.pixiv.net/jump.php?*
 // @match        https://www.youtube.com/redirect?*
@@ -9,6 +9,7 @@
 // @match        https://www.pinterest.com/offsite/?*
 // @match        http://joyreactor.cc/redirect?*
 // @match        https://www.google.com/url?*
+// @match        https://www.linkedin.com/safety/go?url=*
 // @grant        none
 // ==/UserScript==
 
@@ -38,7 +39,8 @@ if (location.hostname.includes('pixiv') ||
 	location.hostname.includes('youtube') ||
 	location.hostname.includes('pinterest') ||
 	location.hostname.includes('joyreactor') ||
-	location.hostname.includes('google')) {
+	location.hostname.includes('google') ||
+	location.hostname.includes('linkedin')) {
 	redirect({
 		type: 'search'
 	});
