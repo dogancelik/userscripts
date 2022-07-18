@@ -45,6 +45,8 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Twitter Remove Popup](twitter-remove-popup.user.js)
 * [WallpaperMaiden Quick Download](wallpapermaiden-quick-download.user.js)
 * [Warez-BB Search Sub-forums](warezbb-search-subforums.user.js)
+* [XYplorer Download Beta with Date](xyplorer-download-beta-with-date.user.js)
+* [XYplorer Download with Version](xyplorer-download-with-version.user.js)
 * [YouTube Search Export Links](youtube-search-export-links.user.js)
 
 ## Recommended userscripts (not mine)
