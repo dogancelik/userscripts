@@ -69,3 +69,4 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Spotify Ad Muter](https://gist.github.com/marcbelmont/1ea63270867a4e8786dd5f172d8d4489)
 * [Twitch Adblock solutions](https://github.com/pixeltris/TwitchAdSolutions)
 * [Twitch Auto Channel Points Claimer](https://greasyfork.org/en/scripts/392348-twitch-auto-channel-points-claimer)
+* [Twitch Auto Dark Mode](https://greasyfork.org/scripts/439450-twitch-auto-dark-mode)
