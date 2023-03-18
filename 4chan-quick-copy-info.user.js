@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         4chan Quick Copy Info
 // @namespace    dogancelik.com
-// @version      0.2.0
+// @version      0.3.0
 // @description  Adds buttons for copying OP name, subject, message, date, number, thumbnail & file URL
 // @match        https://boards.4chan.org/*
 // @match        https://boards.4channel.org/*
@@ -36,6 +36,7 @@ var detected = '',
 			number: ['.postInfo.desktop .postNum.desktop a:last-of-type'],
 			thumbnail: ['.file .fileThumb img', 'src'],
 			file: ['.file .fileThumb', 'href'],
+			link: ['.postInfo.desktop .postNum a[href^="#"]', '@href', (v) => v.replace(/#.*/, '')]
 		},
 		desuarchive: {
 			_domains: [
@@ -54,10 +55,11 @@ var detected = '',
 			number: ['> header > .post_data > .time_wrap ~ a[data-post]', 'data-post'],
 			thumbnail: ['> .thread_image_box > .thread_image_link > img', 'src'],
 			file: ['> .thread_image_box > .thread_image_link', 'href'],
+			link: ['.post_controls a[href^="//"]', '@href'],
 		}
 	};
 
-function getThreadData(key, context) {
+function getThreadData(key, context, modifyFinal) {
 	let [query, attr, modify] = queries[detected][key],
 		el = $(query, context);
 
@@ -77,6 +79,10 @@ function getThreadData(key, context) {
 
 		if (modify) {
 			val = modify(val, el);
+		}
+
+		if (modifyFinal) {
+			val = modifyFinal(val, el);
 		}
 
 		return val;
@@ -108,10 +114,28 @@ function detectSite() {
 
 detectSite();
 
+function getAccessData(op) {
+	const subject = getThreadData('subject', op),
+		message = getThreadData('message', op, trim),
+		date = getThreadData('datetime', op).toISOString().split('T')[0].replace(/-/g, '.'),
+		link = getThreadData('link', op);
+	return link + '\t' +
+		(subject ? subject : '') +
+		(subject && message ? ' - ' : '') +
+		(message ? message : '') + '\t' +
+		date;
+}
+
+function trim(str) {
+	return str.replace(/\s+/g, ' ').trim();
+}
+
 function qciEach(index, element) {
 	let op = $(element),
 		qci = $(`<div id="quick-copy-info-${index}" class="quick-copy-info">
 	<b>Copy:</b>
+	<button type="button" class="qci-link">Link</button>
+	<span>|</span>
 	<button type="button" class="qci-name">Name</button>
 	<button type="button" class="qci-subject">Subject</button>
 	<button type="button" class="qci-message">Message</button>
@@ -121,11 +145,15 @@ function qciEach(index, element) {
 	<span>|</span>
 	<button type="button" class="qci-thumbnail">Thumbnail</button>
 	<button type="button" class="qci-file">File</button>
+	<span>|</span>
+	<button type="button" class="qci-access">Access</button>
 </div>`);
 
+	qci.find('.qci-link').on('click', (e) => clip(e, getThreadData('link', op)));
+	qci.find('.qci-access').on('click', (e) => clip(e, getAccessData(op)));
 	qci.find('.qci-name').on('click', (e) => clip(e, getThreadData('name', op)));
 	qci.find('.qci-subject').on('click', (e) => clip(e, getThreadData('subject', op)));
-	qci.find('.qci-message').on('click', (e) => clip(e, getThreadData('message', op).replace(/\s+/g, ' ').trim()));
+	qci.find('.qci-message').on('click', (e) => clip(e, getThreadData('message', op, trim)));
 	qci.find('.qci-date').on('click', (e) => clip(e, getThreadData('datetime', op)));
 	qci.find('.qci-number').on('click', (e) => clip(e, getThreadData('number', op)));
 	qci.find('.qci-thumbnail').on('click', (e) => clip(e, getThreadData('thumbnail', op)));
