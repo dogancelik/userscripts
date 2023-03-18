@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Fast Redirect
 // @namespace    dogancelik.com
-// @version      0.7.0
+// @version      0.7.1
 // @description  Redirect to websites without waiting
 // @match        https://www.pixiv.net/jump.php?*
 // @match        https://www.youtube.com/redirect?*
-// @match        https://hikarinoakariost.info/out/*
+// @match        https://hikarinoakari.com/out/*
 // @match        https://www.pinterest.com/offsite/?*
 // @match        http://joyreactor.cc/redirect?*
 // @match        https://www.google.com/url?*
@@ -44,7 +44,7 @@ if (location.hostname.includes('pixiv') ||
 	redirect({
 		type: 'search'
 	});
-} else if (location.hostname.includes('hikarinoakariost')) {
+} else if (location.hostname.includes('hikarinoakari')) {
 	redirect({
 		type: 'match',
 		match: () => window.atob(window.location.href.match(/out\/\?(.+)\/?/)[1]),
