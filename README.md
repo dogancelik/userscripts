@@ -44,6 +44,7 @@ Some userscripts may not work because `GM_` functions are deprecated in Greasemo
 * [Teams Fix Mute Key](teams-fix-mute-key.user.js)
 * [Twitter Remove GIFs](twitter-remove-gifs.user.js)
 * [Twitter Remove Popup](twitter-remove-popup.user.js)
+* [VirusTotal Auto Dark Mode](virustotal-auto-dark-mode.user.js)
 * [WallpaperMaiden Quick Download](wallpapermaiden-quick-download.user.js)
 * [Warez-BB Search Sub-forums](warezbb-search-subforums.user.js)
 * [XYplorer Download Beta with Date](xyplorer-download-beta-with-date.user.js)
